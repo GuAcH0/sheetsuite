@@ -112,35 +112,6 @@ class pydex:
             self.index[species_constant].hoenndex = hoenndex_constant
 
 """
-merge this entire thing with new method in pydex
-confused because seems like cyclic thing, pydex creates pydex inside iteself? (above method)
-
-compare_biglist_lengths should be called from this function not the function inside other function
-all functions should be called here
-def thebigdict_to_pydex(thebiggerlist):
-    import config
-    newdex = pydex()
-    for biglist in thebiggerlist:  #this is actually wrong; expects natdex column in first biglist/sheet but not true
-        for row in biglist:
-            species_column_key = config.species_name_column
-            species_name = row[species_column_key]
-            species_identifier = "SPECIES_" + str(species_name)
-            natdex_identifier = "NATIONAL_DEX_" + str(species_name)
-            hoenndex_identifier = "HOENN_DEX_" + str(species_name)
-            natdex_constant = row[config.natdex_column]
-            species_constant = natdex_constant          #need to change later, not true if unown included
-            hoenndex_constant = 69          #need to change later for obvious reasons
-            newdex.register(species_identifier, species_constant, species_name)
-            #this point in code should check if existing index/natdex, various reasons this could go wrong not sure
-            newdex.index[species_constant].natdexid = natdex_identifier
-            newdex.index[species_constant].natdex = natdex_constant
-            newdex.index[species_constant].hoenndexid = hoenndex_identifier
-            newdex.index[species_constant].hoenndex = hoenndex_constant
-    return newdex
-"""
-
-
-"""
 Some notes on names of objects used:
 
 row = {'name':... 'index':...} 
@@ -154,8 +125,7 @@ rowmatchedbiglist = [{sheet1:biglist1[0], sheet2:biglist2[0]...}
 
 
 
-#TODO    
-#fix thebiggerlist_to_basic_pydex(thebiggerlist) 
+#TODO
 #assert species_column_key in sheet_inconsistencies.keys()
 #change this line to check that each sheet has this column, during the fuse
 
